@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Valentine Date Idea </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="music/song.mp3" loop></audio>
+
+    <div class="container">
+        <h1>YIPPPEEEE HIP HIP BAEEEE </h1>
+        <p>Our date plan baby! Lmk if bae approves!</p>
+        <ul>
+            <li>ACTIVITY OF THE DAY: ADVENTURE COVEEEEEEE </li>
+            <li>LUGE AT SENTOSA!</li>
+            <li>DINNER MAKAN SEDAPPPPPPP AT WHEREVER BAE WANTSSSS</li>
+        </ul>
+        <p>I love you many many lots bae deanna!</p>
+        <button onclick="window.location.href='index.html'">Go Back 💜</button>
+    </div>
+
+<script>
+    window.addEventListener('load', () => {
+    const music = document.getElementById('bgMusic');
+    music.volume = 0.5; // optional: set volume
+    music.play().catch(() => {
+        console.log("Autoplay blocked. Will play on first click.");
+    });
+
+    // Fallback: play music on first click if autoplay blocked
+    document.body.addEventListener('click', () => {
+        music.play();
+    }, { once: true });
+});
+
+</script>
+</body>
+</html>
