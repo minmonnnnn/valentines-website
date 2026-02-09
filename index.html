@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine Deanna?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="music/song.mp3" loop></audio>
+    <div class = "container">
+
+        <h1>Hello Bae Deanna!</h1>
+        <p id="question" style="color: rgb(183, 0, 255);">Will you be my Valentine Bae Deanna Adlyn Binte Razali?</p>
+
+
+        <div class = "buttons">
+            <button id = "yesBtn">YESSS HIP HIP HOORAYYYY</button>
+            <button id = "noBtn">NOOOOOO PLEASE BAEEEE</button>
+
+        </div>
+
+        <p id = "response"></p>
+
+
+    </div>
+
+<script>
+
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const response = document.getElementById('response');
+
+    window.addEventListener('load', () => {
+    const music = document.getElementById('bgMusic');
+    music.volume = 0.5; // optional: set volume to 50%
+    music.play().catch(() => {
+        console.log("Autoplay blocked. Will play on first click.");
+    });
+
+    // Fallback: play music on first click if autoplay blocked
+    document.body.addEventListener('click', () => {
+        music.play();
+    }, { once: true });
+});
+
+
+    function launchHeart(){
+
+        for(let i = 0; i<30; i++){
+
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 90 + 'vw';
+            heart.style.animationDuration = (2 + Math.random()*3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+
+    }
+
+     yesBtn.addEventListener('click', () => {
+        response.textContent = "HIP HIP HOOORAY BAEEEEEE I LOVE YOUUUUUUUUU";
+        response.style.color = "purple";
+        launchHeart();
+    setTimeout(() => {
+        window.location.href = "Dates.html";
+    }, 2000);
+        
+    });
+
+    noBtn.addEventListener('click', () => {
+        response.textContent = "NOOOOOOO BAEEEEEE I LOVE YOUUUUUUUUUU";
+        response.style.color = "gray";
+        noBtn.classList.add('shake');
+        setTimeout(() => noBtn.classList.remove('shake'), 500);
+    });
+
+
+    const backgrounds = [
+        'Pictures/bg1.jpg',
+        'Pictures/bg2.jpg',
+        'Pictures/bg3.jpg',
+        'Pictures/bg4.jpg',
+        'Pictures/bg5.jpg',
+        'Pictures/bg6.jpg',
+        'Pictures/bg7.jpg'
+    ];
+    let current = 0;
+    function changeBackground() {
+        document.body.style.backgroundImage = `url('${backgrounds[current]}')`;
+        current = (current + 1) % backgrounds.length;
+    }
+    
+    setInterval(changeBackground, 6000);
+    changeBackground(); 
+
+</script>
+
+
+</body>
+</html>
